@@ -23,7 +23,14 @@ form.addEventListener("click", function(e){
 
   console.log(isNaN(value));
 
-  if (isNaN(value) || value < 0 || value > 9){
-    result.innerHTML = ` <p class="result">${text[0]}</p>    `
+  if (isNaN(value) || value <= 0 || value > 9){
+    result.innerHTML = ` <p class="result">${text[random]}</p>    `
+  }else{
+    let tempText = text.slice(0, value);
+    tempText = tempText.map(function (item){
+      return `<p class="result">${text}</p> `
+    })
+    .join("");
+    result.innerHTML = tempText;  
   }
 })
